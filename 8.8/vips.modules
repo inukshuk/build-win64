@@ -806,9 +806,9 @@
 
     <branch
       repo="vips"
-      module="v8.8.3/vips-8.8.3.tar.gz"
-      version="8.8.3"
-      checkoutdir="vips-8.8.3"/>
+      module="v8.8.1/vips-8.8.1.tar.gz"
+      version="8.8.1"
+      checkoutdir="vips-8.8.1"/>
 
     <dependencies>
       <dep package="cfitsio"/>
@@ -857,9 +857,9 @@
 
     <branch
       repo="vips"
-      module="v8.8.3/vips-8.8.3.tar.gz"
-      version="8.8.3"
-      checkoutdir="vips-8.8.3"/>
+      module="v8.8.1/vips-8.8.1.tar.gz"
+      version="8.8.1"
+      checkoutdir="vips-8.8.1"/>
 
     <dependencies>
       <dep package="webp"/>
@@ -888,9 +888,9 @@
 
     <branch
       repo="vips"
-      module="v8.8.3/vips-8.8.3.tar.gz"
-      version="8.8.3"
-      checkoutdir="vips-8.8.3">
+      module="v8.8.1/vips-8.8.1.tar.gz"
+      version="8.8.1"
+      checkoutdir="vips-8.8.1">
       <patch file="patches/transform.patch" strip="1"/>
     </branch>
 
@@ -909,6 +909,38 @@
       <dep package="libjpeg-turbo"/>
       <dep package="tiff"/>
       <dep package="openslide"/>
+      <dep package="lcms"/>
+      <dep package="libexif"/>
+      <dep package="imagemagick"/>
+      <dep package="libpng"/>
+      <dep package="libheif"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="libvips-tropy"
+    autogen-sh="configure"
+    autogenargs="--enable-debug=no --without-OpenEXR --disable-introspection "
+    makeargs="CFLAGS=-O3 CXXFLAGS=-O3">
+
+    <branch
+      repo="vips"
+      module="v8.8.1/vips-8.8.1.tar.gz"
+      version="8.8.1"
+      checkoutdir="vips-8.8.1">
+      <patch file="patches/transform.patch" strip="1"/>
+    </branch>
+
+    <dependencies>
+      <dep package="webp"/>
+      <dep package="librsvg"/>
+      <dep package="giflib"/>
+      <dep package="poppler"/>
+      <dep package="glib"/>
+      <dep package="orc-0.4"/>
+      <dep package="fftw3"/>
+      <dep package="libgsf"/>
+      <dep package="libjpeg-turbo"/>
+      <dep package="tiff"/>
       <dep package="lcms"/>
       <dep package="libexif"/>
       <dep package="imagemagick"/>

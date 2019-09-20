@@ -23,16 +23,16 @@ if ! type docker > /dev/null; then
 fi
 
 # Ensure latest Ubuntu LTS base image
-docker pull ubuntu:bionic
+sudo docker pull ubuntu:bionic
 
 # Create a machine image with all the required build tools pre-installed
-docker build -t libvips-build-win64 container
+sudo docker build -t libvips-build-win64 container
 
 # Run build scripts inside container
 # - inheriting the current uid and gid
 # - versioned subdirectory mounted at /data
 # - set ~ to /data as well, since jhbuild likes to cache stuff there
-docker run --rm -t \
+sudo docker run --rm -t \
   -u $(id -u):$(id -g) \
   -v $PWD/$version:/data \
   -e "HOME=/data" \
